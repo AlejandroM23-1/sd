@@ -9,3 +9,14 @@ Lo ideal es que aparezca el mensaje de error de "acceso denegado". Esto es bueno
 Acceso libre: Si al entrar vemos una lista de modelos o configuraciones, significa que el token de seguridad no está funcionando (está en modo "none") y cualquiera podría usar nuestra cuenta.
 
 Errores internos: Si sale un "Error 500" o "Página no encontrada" donde debería haber seguridad, podría haber archivos dañados o mal instalados en el contenedor.
+
+Explicación de las rutas:
+Ruta Principal (localhost:PUERTO): Al entrar, nos frena de inmediato y pide el token para seguir. Resultado: Seguridad real.
+
+Ruta API (localhost:PUERTO/api): Sale un mensaje de "not found" en texto plano. Esto parece un Falso Positivo, ya que simplemente la ruta no existe en esta versión de OpenClaw.
+
+Ruta Admin (localhost:PUERTO/admin): Nos manda directo al login con un aviso de que no tenemos permiso. Resultado: Seguridad real.
+
+Ruta Versión (localhost:PUERTO/v1): Igual que la anterior, nos bloquea y nos pide identificarnos en el login. Resultado: Seguridad real.
+
+Ruta Herramientas (localhost:PUERTO/tools): Intento fallido de entrar; el sistema nos redirige al inicio para pedir el token. Resultado: Seguridad real.
