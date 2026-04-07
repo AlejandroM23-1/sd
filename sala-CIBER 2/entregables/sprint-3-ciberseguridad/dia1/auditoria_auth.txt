@@ -1,0 +1,11 @@
+1. ¿Qué esperas ver en la pantalla?
+Lo normal es que el navegador muestre una página con texto simple o directamente nos lance un error tipo 401 (No autorizado) o 403 (Prohibido). Esto nos avisa que el sistema detectó que estamos intentando entrar sin permiso.
+
+2. ¿Qué resultado indica que todo está bien configurado?
+Lo ideal es que aparezca el mensaje de error de "acceso denegado". Esto es bueno porque significa que el sistema está escondiendo las API Keys de OpenRouter y los modelos. También es una buena señal si el sistema nos expulsa automáticamente y nos manda de vuelta a la pantalla de login.
+
+3. ¿Qué resultado sería una señal de peligro?
+
+Acceso libre: Si al entrar vemos una lista de modelos o configuraciones, significa que el token de seguridad no está funcionando (está en modo "none") y cualquiera podría usar nuestra cuenta.
+
+Errores internos: Si sale un "Error 500" o "Página no encontrada" donde debería haber seguridad, podría haber archivos dañados o mal instalados en el contenedor.
