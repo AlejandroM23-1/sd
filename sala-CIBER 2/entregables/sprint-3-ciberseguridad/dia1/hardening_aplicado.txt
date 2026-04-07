@@ -1,0 +1,24 @@
+1. ¿Qué esperas ver en la terminal / configuración?
+Se espera que el Gateway de OpenClaw mantenga la configuración bind: lan. Esto es necesario para que el servicio interno del
+contenedor sea capaz de "escuchar" las peticiones que Docker le redirige desde el navegador.
+
+2. ¿Qué resultado indica que está bien configurado?
+La señal de éxito es confirmar que tanto el token como el método de autenticación están habilitados y vinculados a los puertos 
+correctos. Esto garantiza que nadie pueda interactuar con la IA sin la credencial adecuada.
+
+3. ¿Qué resultado sería una señal de peligro?
+Cualquier configuración donde el método de autenticación aparezca como "deshabilitado" o con campos vacíos. Esto dejaría la API 
+de OpenClaw totalmente expuesta a ejecuciones no autorizadas.
+
+Durante la auditoría, identificamos un punto crítico: si cambiamos el binding interno de la aplicación directamente a 127.0.0.1,
+el contenedor podría quedar aislado del puente de Docker, impidiéndonos entrar desde el navegador del host.
+
+Nuestra solución técnica:
+En lugar de romper la comunicación interna del contenedor, aplicamos el Hardening en el archivo docker-compose.yml. Restringimos 
+el mapeo de puertos especificando la dirección de loopback del host:
+127.0.0.1:18789:18789
+
+Resultado final:
+Al ejecutar nuevamente los comandos de la Sección B, verificamos que la dirección IP de escucha en el sistema cambió de 0.0.0.0
+(abierto a la red) a 127.0.0.1 (privado). Ahora, OpenClaw es inaccesible para dispositivos externos, cumpliendo con el objetivo
+de seguridad sin perder funcionalidad.
