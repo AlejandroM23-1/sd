@@ -1,0 +1,19 @@
+1. ¿Qué esperas ver en la terminal?
+Al ejecutar el comando, lo normal es que aparezca la IP local y la remota marcando 0.0.0.0. Esto nos indica que el servicio está listo para escuchar peticiones desde cualquier dirección.
+
+2. ¿Qué resultado indica que todo está bien configurado?
+La palabra clave aquí es "LISTENING". Ver ese estado nos confirma que la computadora ya reservó el puerto específicamente para OpenClaw y está "atenta" para recibir conexiones.
+
+3. ¿Qué resultado sería una señal de peligro?
+
+Vacío total: Si no aparece nada, es muy probable que haya un error en nuestro archivo docker-compose.yml y el contenedor ni siquiera haya arrancado.
+
+Saturación: Si vemos estados como "CLOSE_WAIT" o "TIME_WAIT", significa que el servidor está saturado de peticiones y no puede procesar más.
+
+Aislamiento inesperado: Si la dirección local aparece como 127.0.0.1, el "bind" está bloqueado solo para tu PC. Aunque es más seguro, si tu intención era que Valeria o Santi se conectaran desde sus laptops, no podrán hacerlo.
+
+Tras la ejecución, hemos identificado los identificadores reales de tu sesión:
+
+PID (Identificador de Proceso): 18756
+
+Puerto de escucha: 18789
