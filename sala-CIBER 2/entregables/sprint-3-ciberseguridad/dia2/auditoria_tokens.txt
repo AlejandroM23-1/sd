@@ -1,3 +1,24 @@
-• ¿Qué esperas ver en la terminal?
-• ¿Qué resultado indica que está bien configurado?
-• ¿Qué resultado sería una señal de peligro?
+¿Qué esperas ver en la terminal?
+Espero que el comando findstr encuentre la cadena sk-or- en algún archivo de configuración local (como config.json o un .env previo). También espero que el comando de git log no devuelva ningún resultado, lo que indicaría que la clave nunca ha salido de mi máquina hacia la nube.
+
+¿Qué resultado indica que está bien configurado?
+Que la clave aparezca únicamente en archivos locales que no están siendo rastreados por Git. El escenario ideal es que la búsqueda en el historial de Git sea negativa.
+
+¿Qué resultado sería una señal de peligro?
+Si el comando git log -p --all | grep "sk-or-" muestra coincidencias. Esto significaría que la clave ya está (o estuvo) en el historial del repositorio y cualquier persona con acceso al repo podría robarla, incluso si la borro ahora.
+
+Reporte de Auditoría de Tokens
+
+Búsqueda en Sistema de Archivos:
+
+Comando: findstr /s /i "sk-or-" *.json *.env *.txt *.yaml *.toml
+
+Resultado: [EJEMPLO: Se encontró la clave en config/settings.json y en docker-compose.yml].
+
+Búsqueda en Historial de Git:
+
+Comando: git log -p --all | findstr "sk-or-"
+
+Resultado: [EJEMPLO: No se encontraron coincidencias en el historial de commits].
+
+Conclusión de Riesgo: [EJEMPLO: Riesgo Medio. La clave está en texto plano localmente, pero no se ha filtrado al repositorio público].
