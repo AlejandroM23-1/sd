@@ -4,7 +4,7 @@ sala: CIBER S2
 curso: Ciberseguridad Aplicada
 dia: 1
 estado: en_progreso
-loom: (agregar link al terminar)
+loom: https://drive.google.com/file/d/1p1wLWiGAE4G8lYNqnGUzpwuaXCMSe81f/view?usp=drive_link
 ---
 
 ## Secciones
