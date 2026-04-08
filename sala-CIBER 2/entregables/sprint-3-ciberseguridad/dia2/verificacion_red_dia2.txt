@@ -26,3 +26,23 @@ Puerto: 18789 protegido en interfaz local (Loopback).
 Conexión activa: Detectada conexión establecida desde el navegador Opera (opera.exe) hacia el puerto de OpenClaw. Tráfico interno verificado.
 
 Firewall: Operativo en perfiles Dominio, Privado y Público. Se confirma la capa de aislamiento del Sistema Operativo.
+
+SECCIÓN C -- Auditoría de tokens — ¿dónde vive tu API key?:
+.¿Qué esperas ver en la terminal?
+Espero ver que el perfil de red de mi conexión actual sea Público. También espero que el comando de PowerShell me confirme que la categoría de red es restrictiva.
+
+¿Qué resultado indica que está bien configurado?
+Que Get-NetConnectionProfile devuelva NetworkCategory: Public. En este modo, Windows oculta tu computadora de otros dispositivos en la red y activa reglas de firewall más estrictas por defecto.
+
+¿Qué resultado sería una señal de peligro?
+Ver la categoría como Private (Privado). Esto le dice a Windows que "confíe" en los demás dispositivos del WiFi, permitiendo que otros usuarios del campus intenten descubrir tus puertos abiertos más fácilmente.
+
+Auditoría de Procesos y Puertos (Host Windows)
+
+Servicio OpenClaw: Identificado bajo el proceso com.docker.backend.exe (PID 22092).
+
+Cliente detectado: El navegador opera.exe (PID 3984) es el único proceso con una conexión establecida hacia el puerto de la IA.
+
+Estado del Firewall: Los tres perfiles (Dominio, Privado y Público) están en estado ACTIVAR. Esto garantiza que el sistema operativo está filtrando activamente el tráfico.
+
+Análisis de Reglas: Aunque el filtro de reglas habilitadas no devolvió una lista extensa, el estado global "ACTIVAR" confirma que la política por defecto de bloqueo está funcionando.
