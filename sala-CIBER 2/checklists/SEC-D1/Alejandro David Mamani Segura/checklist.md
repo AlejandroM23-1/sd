@@ -8,10 +8,10 @@ loom: https://drive.google.com/file/d/1p1wLWiGAE4G8lYNqnGUzpwuaXCMSe81f/view?usp
 ---
 
 ## Secciones
-- [ ] A — Diagnóstico inicial
-- [ ] B — Auditoría de red
-- [ ] C — Auditoría de autenticación
-- [ ] D — Acceso externo
-- [ ] E — Hardening mínimo
-- [ ] F — Evaluación entre pares
-- [ ] G — Cierre del día
+- [x] A — Diagnóstico inicial
+- [x] B — Auditoría de red
+- [x] C — Auditoría de autenticación
+- [x] D — Acceso externo
+- [x] E — Hardening mínimo
+- [x] F — Evaluación entre pares
+- [x] G — Cierre del día
