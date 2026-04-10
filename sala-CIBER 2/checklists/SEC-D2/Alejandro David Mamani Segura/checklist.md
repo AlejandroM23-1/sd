@@ -4,7 +4,7 @@ sala: CIBER S2
 curso: SEC
 dia: 2
 estado: en_progreso
-loom: (agregar link al terminar)
+loom: https://drive.google.com/file/d/1rx49_Eqr0tlJSdJJOTMxeDe7tw5Cpm6T/view?usp=sharing
 ---
 
 ## Secciones
