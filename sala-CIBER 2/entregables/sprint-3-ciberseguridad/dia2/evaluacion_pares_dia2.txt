@@ -1,0 +1,9 @@
+EVALUADOR:	Alexander Arhuata
+EVALUADO:	Alejandro Mamani Segura
+ESCENARIO ELEGIDO:	Trayectoria de la API Key
+RESUMEN DE LA RESPUESTA:	Explicó que al inicio la API key estaba en texto plano dentro de archivos de configuración (config.json o docker-compose.yml), lo cual
+permitía que Git la rastreara. Al final del día, la clave se movió a un archivo .env externo, se añadió al .gitignore y se inyectó al contenedor de Docker mediante la
+instrucción env_file, quedando aislada del historial del repositorio.
+QUÉ ENTENDIÓ BIEN:	Comprendió perfectamente que el riesgo no es solo que la clave sea visible ahora, sino que quede grabada permanentemente en los metadatos del
+historial de Git.
+QUÉ NECESITA REPASAR:	Debe practicar el uso del comando git rm --cached para asegurar que sabe cómo desvincular un archivo sin borrarlo físicamente del disco.
