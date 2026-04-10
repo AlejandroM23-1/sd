@@ -3,7 +3,7 @@ alumno: Alejandro David Mamani Segura
 sala: CIBER S2
 curso: Ciberseguridad Aplicada
 dia: 1
-estado: en_progreso
+estado: terminado
 loom: https://drive.google.com/file/d/1p1wLWiGAE4G8lYNqnGUzpwuaXCMSe81f/view?usp=drive_link
 ---
 
