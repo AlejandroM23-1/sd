@@ -3,7 +3,7 @@ alumno: Alejandro David Maamni Segura
 sala: CIBER S2
 curso: SEC
 dia: 2
-estado: en_progreso
+estado: terminado
 loom: https://drive.google.com/file/d/1rx49_Eqr0tlJSdJJOTMxeDe7tw5Cpm6T/view?usp=sharing
 ---
 
