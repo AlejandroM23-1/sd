@@ -1,0 +1,8 @@
+¿Qué esperas ver en la terminal/Wireshark?
+Espero ver una pantalla mayormente estática en Wireshark tras aplicar el filtro. Podrían aparecer paquetes TCP de tipo Keep-Alive para mantener la conexión abierta entre el contenedor de Docker y el host, pero no debería haber paquetes de datos (TLS/HTTP) hacia IPs externas.
+
+¿Qué resultado indica que está bien configurado?
+La ausencia total de paquetes dirigidos a api.openrouter.ai o cualquier otra IP externa mientras el chat no se esté usando. El gráfico de IO Graph debería mostrar una línea plana.
+
+¿Qué resultado sería una señal de peligro?
+Ver consultas DNS constantes o conexiones TLS hacia dominios desconocidos. Si detecto tráfico saliente hacia IPs que no pertenecen a la infraestructura de OpenRouter o Docker, podría indicar la presencia de un backdoor o telemetría intrusiva.

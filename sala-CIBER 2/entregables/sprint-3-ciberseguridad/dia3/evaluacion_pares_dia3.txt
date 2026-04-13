@@ -1,0 +1,10 @@
+EVALUADOR:	Manuel Rivera
+EVALUADO:	Alejandro David Mamani Segura
+ESCENARIO ELEGIDO:	Riesgos de una instalación sin Hardening
+RESUMEN DE LA RESPUESTA:	Identificó correctamente los tres riesgos: 1. Exposición de puerto: 
+OpenClaw escuchando en 0.0.0.0 (accesible para cualquier atacante en la red del campus). 2. Fuga de API Key: El token en texto plano dentro de un archivo no ignorado en Git. 3. Intercepción de tráfico: Envío de datos sin cifrar que podrían capturarse con un sniffer. 
+
+Propuso resolverlo en orden de criticidad: primero el firewall/binding, luego la gestión de secretos y finalmente el cifrado TLS.
+
+QUÉ ENTENDIÓ BIEN:	Logró priorizar los riesgos basándose en la facilidad con la que un atacante externo podría explotarlos en una red compartida.
+QUÉ NECESITA REPASAR:	Debe profundizar en la diferencia entre el cifrado en tránsito (TLS) y el aislamiento de red (Binding) para no confundirlos como una sola capa.

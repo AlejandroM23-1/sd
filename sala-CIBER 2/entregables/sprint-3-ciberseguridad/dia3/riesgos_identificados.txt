@@ -1,0 +1,12 @@
+Riesgo:
+Nombre: Denegación de Servicio por Fallo de Resolución DNS (DNS Sinkholing)
+
+Severidad: MEDIA Qué es: El sistema no puede traducir el nombre api.openrouter.ai a una dirección IP, dejando al agente incomunicado.
+
+Cómo ocurre: Cuando el servidor DNS local (ej. el de la operadora o campus) tiene bloqueado el dominio o está mal configurado.
+
+Impacto para el estudiante: El agente OpenClaw se vuelve inoperable ("Non-existent domain"), interrumpiendo el flujo de trabajo o estudio.
+
+Mitigación: Configurar DNS de confianza (como Google 8.8.8.8) y realizar un ipconfig /flushdns (Día 3).
+
+Evidencia: El error capturado en la terminal: *** UnKnown no encuentra api.openrouter.ai: Non-existent domain.

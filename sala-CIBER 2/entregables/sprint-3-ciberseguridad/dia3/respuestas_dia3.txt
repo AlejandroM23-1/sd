@@ -1,0 +1,5 @@
+¿Qué información puede obtener un atacante del tráfico cifrado con TLS aunque no pueda ver el contenido — tamaño de paquetes, timing, destinos?
+Un atacante puede obtener metadatos críticos como los destinos (mediante el SNI en el paquete Client Hello), el volumen de datos (el tamaño de los paquetes permite inferir si envías texto simple o archivos pesados), el timing (los patrones de ráfagas revelan tus horarios de actividad) y la huella digital del software (JA3 fingerprint) que identifica tu sistema operativo y versión de la aplicación.
+
+¿Qué es el principio de mínimo privilegio y cómo aplicaría exactamente a la configuración de OpenClaw en Windows?
+Es la norma de otorgar solo los permisos estrictamente necesarios para que un programa funcione. En OpenClaw, esto se aplica ejecutando el proceso como Usuario Estándar (nunca Administrador) y restringiendo mediante permisos de carpeta que el agente solo pueda leer su directorio de instalación, bloqueando su acceso a rutas sensibles como %USERPROFILE%\.ssh o tus documentos personales.

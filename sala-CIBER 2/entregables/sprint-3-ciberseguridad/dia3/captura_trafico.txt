@@ -1,0 +1,30 @@
+Tráfico en reposo — hallazgos
+¿Hubo conexiones sin intervención del usuario? ¿A qué dominios? ¿Con qué frecuencia?
+No (o mínima).
+Principalmente intentos de resolución local. 
+No se observaron peticiones salientes de datos hacia la nube mientras la aplicación estaba inactiva.
+Nula. El IO Graph de Wireshark mostró una línea plana, lo que confirma que OpenClaw no envía telemetría constante o "heartbeats" intrusivos en reposo.
+
+¿El tráfico hacia OpenRouter va cifrado con TLS?
+Sí. Mediante Wireshark, utilizando el filtro tls o tcp.port == 443. Observamos paquetes de tipo "Client Hello" y "Server Hello", seguidos de paquetes etiquetados como "Application Data". Al intentar inspeccionar el contenido de estos paquetes (TCP Stream), la carga útil (payload) era completamente ilegible (caracteres aleatorios), confirmando que el túnel cifrado protege la API Key y los mensajes
+
+¿A qué dominios/IPs exactas se conectó OpenClaw durante las peticiones?
+Durante las pruebas de conexión (incluyendo los intentos que devolvieron el error de créditos), se observaron los siguientes destinos:
+
+api.openrouter.ai: (Resolviendo a IPs de Cloudflare, ej. 172.64.150.210 o similares).
+
+200.48.225.130: El servidor DNS configurado (Telefónica del Perú), donde se capturaron los fallos de resolución iniciales.
+
+8.8.8.8: Cuando forzamos el nslookup para saltar el bloqueo DNS local.
+
+127.0.0.1: Tráfico interno de loopback entre el frontend y el backend de OpenClaw.
+
+¿Hay conexiones a dominios que no sean de OpenRouter?
+Destinos observados: * cloudflare.com: Debido a que OpenRouter utiliza su infraestructura para protección contra DDoS.
+
+docker.com / registry-1.docker.io: Si hubo actualizaciones o verificaciones de las imágenes del contenedor al inicio.
+
+Búsqueda Whois: Al buscar la IP 200.48.225.130 en Whois DomainTools, se confirma que pertenece a la infraestructura de red de tu ISP local, descartando conexiones a servidores sospechosos o de terceros no autorizados.
+ 
+
+

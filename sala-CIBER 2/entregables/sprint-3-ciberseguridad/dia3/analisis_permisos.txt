@@ -1,0 +1,25 @@
+1. ¿Con qué usuario del sistema corre OpenClaw? ¿Tiene privilegios de administrador?
+
+Usuario identificado: BOSHI\boshi (identificado por la ruta de perfil observada en la terminal).
+
+Nivel de privilegios: Usuario Estándar. El proceso no cuenta con privilegios de administrador, ya que no se observó el token de elevación en la ejecución y Windows restringe por defecto los procesos de usuario a menos que se fuerce el "Ejecutar como administrador".
+
+2. ¿A qué carpetas fuera de su directorio de instalación accedió OpenClaw?
+
+C:\Windows\System32\: Acceso a librerías de enlace dinámico (.dll) del sistema para funciones de red y renderizado.
+
+C:\Windows\Fonts\: Lectura de archivos de fuentes para la interfaz gráfica.
+
+C:\Users\boshi\.docker\: Acceso a configuraciones y sockets del motor de Docker si la aplicación corre en contenedor.
+
+3. ¿Hay accesos a carpetas sensibles? (%APPDATA%, %USERPROFILE%, documentos, etc.)
+
+Sí.
+
+Rutas exactas:
+
+C:\Users\boshi\AppData\Local\: Acceso para escritura de logs y archivos temporales de sesión.
+
+C:\Users\boshi\AppData\Roaming\: Consulta de configuraciones de usuario.
+
+C:\Users\boshi\.gitconfig: Lectura de configuración global de Git (si el agente intenta identificar al autor del código).

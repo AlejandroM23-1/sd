@@ -1,0 +1,3 @@
+## Sección A - Verificación de estado + setup de Wireshark
+Al verificar que la configuración del puerto y la ip aisladas se haya mantenido, salió todo de forma correcta (la cmd mostró que openclaw escucha en la dirección 127.0.0.1).
+Para el filtrado de paquetes con wireshark se realizó la captura para la interfaz loopback, luego se utilizó el filtrado tcp.port == 18789 ya que al utilizar host api.openrouter.ai nos salía rojo en la sección de filtrado (osea que era inválido).
